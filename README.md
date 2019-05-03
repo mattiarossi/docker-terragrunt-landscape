@@ -1,4 +1,4 @@
-Terragrunt
+Terragrunt and terraform Landscape
 
 Built from the official hashicorp/terraform:latest container.
 
