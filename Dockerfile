@@ -1,7 +1,7 @@
 FROM golang:alpine
 MAINTAINER MattiaRossi <mattia.rossi@gmail.comt>
 
-ENV TERRAFORM_VERSION=0.11.15-oci
+ENV TERRAFORM_VERSION=0.11.14
 ENV TERRAGRUNT_VERSION=0.18.8-cintra
 ENV TERRAGRUNT_TFPATH=/bin/terraform
 RUN apk add --update git bash openssh
