@@ -1,11 +1,20 @@
-FROM hashicorp/terraform:latest
+FROM golang:alpine
 MAINTAINER MattiaRossi <mattia.rossi@gmail.comt>
 
-ENV TERRAFORM_VERSION=latest
-ENV TERRAGRUNT_VERSION=0.18.4
+ENV TERRAFORM_VERSION=0.11.15-oci
+ENV TERRAGRUNT_VERSION=0.18.8-cintra
 ENV TERRAGRUNT_TFPATH=/bin/terraform
+RUN apk add --update git bash openssh
+ENV TF_DEV=true
+ENV TF_RELEASE=true
 
-RUN curl -sL https://github.com/gruntwork-io/terragrunt/releases/download/v$TERRAGRUNT_VERSION/terragrunt_linux_386 \
+WORKDIR $GOPATH/src/github.com/hashicorp/terraform
+RUN git clone https://github.com/hashicorp/terraform.git ./ && \
+    git checkout v${TERRAFORM_VERSION} && \
+    /bin/bash scripts/build.sh
+
+
+RUN curl -sL https://github.com/gruntwork-io/mattiarossi/terragrunt-binaries/releases/download/v$TERRAGRUNT_VERSION/terragrunt_linux_amd64 \
   -o /bin/terragrunt && chmod +x /bin/terragrunt
 
 
