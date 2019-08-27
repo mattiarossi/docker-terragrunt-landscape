@@ -2,7 +2,7 @@ FROM hashicorp/terraform:0.11.14
 MAINTAINER MattiaRossi <mattia.rossi@gmail.comt>
 
 ENV TERRAFORM_VERSION=0.11.14
-ENV TERRAGRUNT_VERSION=0.18.8-cintra
+ENV TERRAGRUNT_VERSION=0.18.8-c2
 ENV TERRAGRUNT_TFPATH=/bin/terraform
 
 
